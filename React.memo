@@ -1,0 +1,28 @@
+import React, { useState, memo } from 'react';
+
+const ExpensiveFunction = memo(() => {
+    let total = 0;
+    for (let i = 1; i <= 1000000; i++) {
+        total += i;
+    }
+    console.log("ExpensiveFunction Rendered!");
+    return <div>Sum: {total}</div>; 
+});
+
+function ReactMemo() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <ExpensiveFunction /> 
+
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+            <div>
+                <p>Here it increases: {count}</p>
+            </div>
+        </div>
+    );
+}
+
+export default ReactMemo;
+{/* Sakshi's code */}
